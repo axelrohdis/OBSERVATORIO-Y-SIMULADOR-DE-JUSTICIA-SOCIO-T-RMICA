@@ -1,5 +1,15 @@
 # Registro de cambios
 
+## 2026-11-14 16:40 — Datos reales VIIRS nocturnos (VNP21A1N V002) y sección de datos numéricos
+- Qué se modificó: la fuente de datos pasa de MODIS MOD11A2 (diurno, sintético) a VIIRS/Suomi NPP VNP21A1N V002 (temperatura superficial nocturna, 1 km, diaria desde 2012), vía Earth Engine (`NASA/VIIRS/002/VNP21A1N`). Nueva sección «Datos numéricos» (resumen y tabla mensual). La app solo muestra variables con datos en el manifest. Mensaje cuando no hay datos suficientes para un método.
+- Archivos que cambiaron: earth-engine/export_lst_night.js (nuevo), scripts/import-ee-exports.mjs, src/components/NumericData.tsx (nuevo), src/App.tsx, src/data/catalog.ts, src/i18n.ts, src/components/Navbar.tsx, earth-engine/exports/trend_lst.csv y trend_lst_n.csv (datos de origen), public/data/*.
+- Por qué: el equipo seleccionó esta colección en Worldview (C2545314559-LPCLOUD). La noche es el momento de mayor isla de calor (Oke).
+- Pruebas ejecutadas: prueba en Earth Engine (LST_1KM = 276,68 K en julio de 2020: ya en kelvin, sin escala); exportación ejecutada por Axel; importación con `npm run import-data`; revisión de la app en la copia de Claude con datos simulados (tsc, build, pantalla).
+- Resultado: meses válidos (mínimo 5 noches) de 167 posibles: Concepción urbano 161, entorno 166, Atacama 167, Amazonía 12 (nubes). Series 2012-02 a 2025-12.
+- Pendiente: verificar en pantalla que los valores sean plausibles; el filtro de QC (bits 0-1 = 0) viene del catálogo y no está validado; definir las regiones finales (Concepción, Nonguén, referencia; Amazonía y Atacama sobran); capa de mapa de este producto en GIBS (falta la URL de Worldview); capa social (INE/Censo); panel de comparación; publicación pública; página en inglés, demo y declaración de IA.
+- Commit: "feat: real VIIRS night LST data (VNP21A1N V002)"
+- Autor: Axel con Claude.
+
 Cada hito se anota arriba de los anteriores. Formato fijo para que Claude y ChatGPT lo lean igual.
 
 ## 2026-11-13 23:59 — Línea base y repositorio en GitHub
