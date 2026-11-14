@@ -4,103 +4,31 @@
       "variable": "lst",
       "region": "concepcion_urbano",
       "file": "lst__concepcion_urbano.csv",
-      "demo": true
+      "demo": false
     },
     {
       "variable": "lst",
       "region": "concepcion_entorno",
       "file": "lst__concepcion_entorno.csv",
-      "demo": true
+      "demo": false
     },
     {
       "variable": "lst",
       "region": "atacama",
       "file": "lst__atacama.csv",
-      "demo": true
+      "demo": false
     },
     {
       "variable": "lst",
       "region": "amazonia",
       "file": "lst__amazonia.csv",
-      "demo": true
-    },
-    {
-      "variable": "ndvi",
-      "region": "concepcion_urbano",
-      "file": "ndvi__concepcion_urbano.csv",
-      "demo": true
-    },
-    {
-      "variable": "ndvi",
-      "region": "concepcion_entorno",
-      "file": "ndvi__concepcion_entorno.csv",
-      "demo": true
-    },
-    {
-      "variable": "ndvi",
-      "region": "atacama",
-      "file": "ndvi__atacama.csv",
-      "demo": true
-    },
-    {
-      "variable": "ndvi",
-      "region": "amazonia",
-      "file": "ndvi__amazonia.csv",
-      "demo": true
-    },
-    {
-      "variable": "precip",
-      "region": "concepcion_urbano",
-      "file": "precip__concepcion_urbano.csv",
-      "demo": true
-    },
-    {
-      "variable": "precip",
-      "region": "concepcion_entorno",
-      "file": "precip__concepcion_entorno.csv",
-      "demo": true
-    },
-    {
-      "variable": "precip",
-      "region": "atacama",
-      "file": "precip__atacama.csv",
-      "demo": true
-    },
-    {
-      "variable": "precip",
-      "region": "amazonia",
-      "file": "precip__amazonia.csv",
-      "demo": true
-    },
-    {
-      "variable": "airtemp",
-      "region": "concepcion_urbano",
-      "file": "airtemp__concepcion_urbano.csv",
-      "demo": true
-    },
-    {
-      "variable": "airtemp",
-      "region": "concepcion_entorno",
-      "file": "airtemp__concepcion_entorno.csv",
-      "demo": true
-    },
-    {
-      "variable": "airtemp",
-      "region": "atacama",
-      "file": "airtemp__atacama.csv",
-      "demo": true
-    },
-    {
-      "variable": "airtemp",
-      "region": "amazonia",
-      "file": "airtemp__amazonia.csv",
-      "demo": true
+      "demo": false
     },
     {
       "variable": "uhi",
       "region": "concepcion_urbano",
       "file": "uhi__concepcion_urbano.csv",
-      "demo": true
+      "demo": false
     }
   ]
 }

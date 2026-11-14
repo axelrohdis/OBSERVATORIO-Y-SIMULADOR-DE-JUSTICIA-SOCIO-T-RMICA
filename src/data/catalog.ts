@@ -28,14 +28,14 @@ export const VARIABLES: VariableInfo[] = [
     unit: same('°C'),
     decimals: 2,
     kind: 'satellite',
-    label: { es: 'Temperatura de la superficie', en: 'Land surface temperature' },
+    label: { es: 'Temperatura de la superficie (noche)', en: 'Land surface temperature (night)' },
     simple: {
       es: 'Temperatura de la "piel" del suelo, el pavimento o la vegetación, medida desde el espacio con infrarrojo térmico. No es la temperatura del aire que sentimos.',
       en: 'Temperature of the "skin" of soil, pavement or vegetation, measured from space with thermal infrared. It is not the air temperature we feel.',
     },
     source: {
-      es: 'NASA MODIS Terra MOD11A2 (diurno, 1 km), promedio mensual',
-      en: 'NASA MODIS Terra MOD11A2 (daytime, 1 km), monthly mean',
+      es: 'NASA VIIRS/Suomi NPP VNP21A1N V002 (nocturno, 1 km), promedio mensual de noches despejadas',
+      en: 'NASA VIIRS/Suomi NPP VNP21A1N V002 (night, 1 km), monthly mean of clear nights',
     },
   },
   {
@@ -48,7 +48,10 @@ export const VARIABLES: VariableInfo[] = [
       es: 'Índice de verdor entre -1 y 1. Alto = vegetación densa y sana; cerca de 0 = suelo desnudo o pavimento.',
       en: 'Greenness index from -1 to 1. High = dense, healthy vegetation; near 0 = bare soil or pavement.',
     },
-    source: { es: 'NASA MODIS Terra MOD13A3 (mensual, 1 km)', en: 'NASA MODIS Terra MOD13A3 (monthly, 1 km)' },
+    source: {
+      es: 'Derivado de VIIRS VNP21A1N (noche): zona urbana menos zona de referencia',
+      en: 'Derived from VIIRS VNP21A1N (night): urban area minus reference area',
+    },
   },
   {
     id: 'precip',
@@ -92,8 +95,8 @@ export const VARIABLES: VariableInfo[] = [
       en: 'Derived from MODIS MOD11A2: urban area minus reference area',
     },
     note: {
-      es: 'Oke definió la isla de calor sobre la temperatura del AIRE, con máximos típicos de noche. Un satélite mide la temperatura de la SUPERFICIE a una hora de paso diurna: por eso esto es una isla de calor superficial, relacionada pero no idéntica.',
-      en: "Oke defined the urban heat island on AIR temperature, typically strongest at night. A satellite measures SURFACE temperature at a daytime overpass: this is a surface heat island, related to but not the same as Oke's.",
+      es: 'Este satélite mide la temperatura de la SUPERFICIE de noche, y solo en noches despejadas: es una isla de calor superficial nocturna, muy relacionada con la de Oke pero no idéntica.',
+      en: "This satellite measures SURFACE temperature at night, and only on clear nights: it is a nocturnal surface heat island, closely related to but not the same as Oke's.",
     },
   },
 ];

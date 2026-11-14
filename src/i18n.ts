@@ -22,6 +22,7 @@ const ui = {
   mapPlay: { es: 'Reproducir años', en: 'Play years' },
   mapPause: { es: 'Pausar', en: 'Pause' },
   mapHint: { es: 'Haz clic en un recuadro para elegir esa región. Imágenes: NASA GIBS. Las nubes pueden tapar algunos días.', en: 'Click a box to pick that region. Imagery: NASA GIBS. Clouds can hide some days.' },
+  notEnough: { es: 'No hay suficientes datos válidos para este método (se descartaron los meses con pocas noches despejadas). Prueba con «Anomalías mensuales» o elige otra región.', en: 'Not enough valid data for this method (months with few clear nights were discarded). Try «Monthly anomalies» or pick another region.' },
   navVariable: { es: 'Variable', en: 'Variable' },
   navRegion: { es: 'Región', en: 'Region' },
   navResult: { es: 'Resultado', en: 'Result' },

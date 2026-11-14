@@ -76,7 +76,11 @@ export default function App() {
       return null;
     }
   }, [raw, status, s.m]);
-
+  // Solo se ofrece lo que tiene datos en el manifest (sin tarjetas vacías).
+  const shownVars = manifest ? VARIABLES.filter((x) => manifest.some((d) => d.variable === x.id)) : VARIABLES;
+  const shownExamples = manifest
+    ? EXAMPLES.filter((e) => manifest.some((d) => d.variable === e.v && d.region === e.r))
+    : EXAMPLES;
   const variable = VARIABLES.find((x) => x.id === s.v)!;
   const anyDemo = (manifest ?? []).some((d) => d.demo);
   const set = (patch: Partial<State>) => setS((p) => ({ ...p, ...patch }));
@@ -106,7 +110,7 @@ export default function App() {
         <section id="ejemplos" aria-label={tr(lang, 'examples')}>
           <h2>{tr(lang, 'examples')}</h2>
           <div className="d-flex flex-wrap gap-2">
-            {EXAMPLES.map((e) => (
+            {shownExamples.map((e) => (
               <button
                 key={e.v + e.r}
                 type="button"
@@ -125,7 +129,7 @@ export default function App() {
         <section id="variable">
           <h2>{tr(lang, 'step1')}</h2>
           <div className="row g-3">
-            {VARIABLES.map((x) => (
+            {shownVars.map((x) => (
               <div className="col-12 col-md-6 col-lg-4" key={x.id}>
                 <button
                   type="button"
@@ -201,6 +205,7 @@ export default function App() {
           {status === 'error' && <div className="alert alert-danger" role="alert">{tr(lang, 'error')}</div>}
           {manifest && !entry && <div className="alert alert-secondary">{tr(lang, 'noData')}</div>}
           {status === 'loading' && entry && <p className="text-body-secondary">{tr(lang, 'loading')}</p>}
+          {status === 'ok' && entry && !analysis && <div className="alert alert-warning" role="status">{tr(lang, 'notEnough')}</div>}
           {analysis && <Result a={analysis} v={variable} lang={lang} />}
 
           <div className="d-flex flex-wrap gap-2 mt-3">
