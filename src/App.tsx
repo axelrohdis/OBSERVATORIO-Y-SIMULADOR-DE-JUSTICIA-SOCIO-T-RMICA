@@ -6,6 +6,8 @@ import { tr } from './i18n';
 import { Navbar } from './components/Navbar';
 import { Result } from './components/Result';
 import { MapView } from './components/MapView';
+import { NumericData } from './components/NumericData';
+import { IsmtResult } from './components/IsmtResult';
 
 interface State {
   v: string;
@@ -122,10 +124,12 @@ export default function App() {
             ))}
           </div>
         </section>
+
         <section id="mapa">
           <h2>{tr(lang, 'mapTitle')}</h2>
           <MapView lang={lang} region={s.r} onPickRegion={(r) => set({ r })} />
         </section>
+
         <section id="variable">
           <h2>{tr(lang, 'step1')}</h2>
           <div className="row g-3">
@@ -218,6 +222,18 @@ export default function App() {
               {copied ? tr(lang, 'copied') : tr(lang, 'copyLink')}
             </button>
           </div>
+        </section>
+
+        {raw && entry && (
+          <section id="datos">
+            <h2>{tr(lang, 'dataTitle')}</h2>
+            <NumericData raw={raw} v={variable} lang={lang} demo={entry.demo} />
+          </section>
+        )}
+
+        <section id="ismt">
+          <h2>{lang === 'es' ? '5. Gráfico 2 · Análisis socio-material (ISMT)' : '5. Chart 2 · Socio-material analysis (ISMT)'}</h2>
+          <IsmtResult lang={lang} />
         </section>
       </main>
     </>

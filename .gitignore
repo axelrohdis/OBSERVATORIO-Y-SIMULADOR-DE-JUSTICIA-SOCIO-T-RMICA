@@ -7,3 +7,5 @@ tsconfig.tsbuildinfo
 .env
 .env.*
 !.env.example
+
+fuentes/Indicador_sociomaterial_territorial_-_ISMT.geojson

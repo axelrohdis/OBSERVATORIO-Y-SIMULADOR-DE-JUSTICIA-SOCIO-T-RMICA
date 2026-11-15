@@ -1,7 +1,18 @@
 import type { Lang } from './data/catalog';
 
 const ui = {
-  title: { es: 'Detective de Tendencias', en: 'Earth System Trend Detective' },
+  title: { es: 'OBSERVATORIO DE JUSTICIA SOCIOCLIMÁTICA', en: 'Observatory of Socio-Climatic Justice' },
+  dataTitle: { es: '4. Datos numéricos', en: '4. Numerical data' },
+  dataIntro: { es: 'Valores mensuales que alimentan el análisis estadístico, tal como llegan de la fuente.', en: 'Monthly values that feed the statistical analysis, exactly as they come from the source.' },
+  dataDemo: { es: 'Estos valores son sintéticos (demostración), no mediciones reales.', en: 'These values are synthetic (demonstration), not real measurements.' },
+  dataN: { es: 'Meses con dato', en: 'Months with data' },
+  dataMissing: { es: 'Meses sin dato', en: 'Months without data' },
+  dataMean: { es: 'Promedio', en: 'Mean' },
+  dataMin: { es: 'Mínimo', en: 'Minimum' },
+  dataMax: { es: 'Máximo', en: 'Maximum' },
+  dataLast: { es: 'Último dato', en: 'Latest value' },
+  dataDate: { es: 'Mes', en: 'Month' },
+  dataValue: { es: 'Valor', en: 'Value' },
   tagline: {
     es: 'Elige una variable de la Tierra y una región. Descubre si cambia en el tiempo y si ese cambio es "significativo".',
     en: 'Pick an Earth variable and a region. Find out whether it changes over time and whether that change is "significant".',

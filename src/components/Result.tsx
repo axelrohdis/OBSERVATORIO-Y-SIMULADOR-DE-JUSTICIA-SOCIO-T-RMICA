@@ -21,6 +21,7 @@ export function Result({ a, v, lang }: Props) {
     autocorr: tr(lang, 'warnAutocorr'),
     disagree: tr(lang, 'warnDisagree'),
   };
+  const shownWarnings = a.warnings.filter((w) => w !== 'short');
   return (
     <div className="mt-3">
       <div className={`alert ${a.significant ? 'alert-success' : 'alert-secondary'}`} role="status">
@@ -56,11 +57,11 @@ export function Result({ a, v, lang }: Props) {
         </div>
       </div>
 
-      {a.warnings.length > 0 && (
+      {shownWarnings.length > 0 && (
         <div className="alert alert-warning" role="note">
           <strong>{tr(lang, 'warnTitle')}</strong>
           <ul className="mb-0 mt-1">
-            {a.warnings.map((w) => (
+            {shownWarnings.map((w) => (
               <li key={w}>{warn[w]}</li>
             ))}
           </ul>
