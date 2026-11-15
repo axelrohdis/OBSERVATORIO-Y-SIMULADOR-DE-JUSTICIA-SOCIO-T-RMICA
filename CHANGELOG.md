@@ -1,5 +1,29 @@
 # Registro de cambios
 
+## [2026-11-14] - Integración de índices de vegetación VIIRS
+
+### Agregado
+- Integración de series temporales NDVI, EVI y EVI2 para Concepción urbano y su entorno.
+- Incorporación de los seis CSV de vegetación exportados desde Google Earth Engine.
+- Actualización del manifest con nueve datasets activos: LST, UHI, NDVI, EVI y EVI2.
+
+### Modificado
+- Actualización del catálogo de variables y regiones para reflejar el alcance actual del prototipo.
+- Corrección de las fuentes de NDVI y UHI: VIIRS VNP13A1.002 y VNP21A1N.002, respectivamente.
+- Modificación de `annualMeans` para calcular primero los promedios mensuales y luego asignar el mismo peso a cada mes.
+- Incorporación de una prueba para verificar la ponderación mensual.
+
+### Validación
+- Vitest: 13 pruebas aprobadas.
+- TypeScript: compilación sin errores.
+- Vite: compilación de producción exitosa.
+- Advertencia pendiente: bundle JavaScript principal de aproximadamente 982 kB, superior al umbral recomendado de 500 kB.
+
+### Pendiente
+- Integrar capas raster de vegetación en MapLibre.
+- Evaluar división del bundle para optimizar la carga inicial.
+- Actualizar README con las fuentes y variables vigentes.
+
 ## 2026-11-14 16:40 — Datos reales VIIRS nocturnos (VNP21A1N V002) y sección de datos numéricos
 - Qué se modificó: la fuente de datos pasa de MODIS MOD11A2 (diurno, sintético) a VIIRS/Suomi NPP VNP21A1N V002 (temperatura superficial nocturna, 1 km, diaria desde 2012), vía Earth Engine (`NASA/VIIRS/002/VNP21A1N`). Nueva sección «Datos numéricos» (resumen y tabla mensual). La app solo muestra variables con datos en el manifest. Mensaje cuando no hay datos suficientes para un método.
 - Archivos que cambiaron: earth-engine/export_lst_night.js (nuevo), scripts/import-ee-exports.mjs, src/components/NumericData.tsx (nuevo), src/App.tsx, src/data/catalog.ts, src/i18n.ts, src/components/Navbar.tsx, earth-engine/exports/trend_lst.csv y trend_lst_n.csv (datos de origen), public/data/*.

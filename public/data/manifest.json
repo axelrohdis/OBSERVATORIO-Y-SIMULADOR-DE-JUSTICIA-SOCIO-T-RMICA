@@ -1,3 +1,4 @@
+
 {
   "datasets": [
     {
@@ -13,21 +14,45 @@
       "demo": false
     },
     {
-      "variable": "lst",
-      "region": "atacama",
-      "file": "lst__atacama.csv",
-      "demo": false
-    },
-    {
-      "variable": "lst",
-      "region": "amazonia",
-      "file": "lst__amazonia.csv",
-      "demo": false
-    },
-    {
       "variable": "uhi",
       "region": "concepcion_urbano",
       "file": "uhi__concepcion_urbano.csv",
+      "demo": false
+    },
+    {
+      "variable": "ndvi",
+      "region": "concepcion_urbano",
+      "file": "ndvi__concepcion_urbano.csv",
+      "demo": false
+    },
+    {
+      "variable": "ndvi",
+      "region": "concepcion_entorno",
+      "file": "ndvi__concepcion_entorno.csv",
+      "demo": false
+    },
+    {
+      "variable": "evi",
+      "region": "concepcion_urbano",
+      "file": "evi__concepcion_urbano.csv",
+      "demo": false
+    },
+    {
+      "variable": "evi",
+      "region": "concepcion_entorno",
+      "file": "evi__concepcion_entorno.csv",
+      "demo": false
+    },
+    {
+      "variable": "evi2",
+      "region": "concepcion_urbano",
+      "file": "evi2__concepcion_urbano.csv",
+      "demo": false
+    },
+    {
+      "variable": "evi2",
+      "region": "concepcion_entorno",
+      "file": "evi2__concepcion_entorno.csv",
       "demo": false
     }
   ]

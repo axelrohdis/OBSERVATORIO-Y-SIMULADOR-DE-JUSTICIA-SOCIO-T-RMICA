@@ -85,6 +85,35 @@ describe('series', () => {
     expect(annualMeans(partial)).toHaveLength(11);
     expect(monthlyAnomalies(raw)).toHaveLength(144);
   });
+
+  it('promedia los meses con el mismo peso aunque tengan distinta cantidad de observaciones', () => {
+    const observations = [];
+
+    // Enero tiene tres observaciones con promedio 0.3.
+    for (const value of [0.2, 0.3, 0.4]) {
+      observations.push({
+        t: 2020 + 0.05,
+        y: value,
+        year: 2020,
+        month: 1,
+      });
+    }
+
+    // Los otros once meses tienen una observación de 0.7.
+    for (let month = 2; month <= 12; month++) {
+      observations.push({
+        t: 2020 + month / 12,
+        y: 0.7,
+        year: 2020,
+        month,
+      });
+    }
+
+    const result = annualMeans(observations);
+
+    expect(result).toHaveLength(1);
+    expect(result[0].y).toBeCloseTo((0.3 + 11 * 0.7) / 12, 10);
+  });
   it('una serie sin tendencia no es significativa', () => {
     const flat = ['date,value'];
     let seed = 3;

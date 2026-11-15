@@ -39,17 +39,44 @@ export function monthlyAnomalies(pts: RawPoint[]): RawPoint[] {
 }
 
 /** Promedio anual; descarta años incompletos para no sesgar por estacionalidad. */
+
 export function annualMeans(pts: RawPoint[]): RawPoint[] {
-  const byYear = new Map<number, RawPoint[]>();
-  for (const p of pts) byYear.set(p.year, [...(byYear.get(p.year) ?? []), p]);
-  const out: RawPoint[] = [];
-  for (const [year, arr] of [...byYear].sort((a, b) => a[0] - b[0])) {
-    const months = new Set(arr.map((p) => p.month));
-    if (months.size < MIN_MONTHS_PER_YEAR) continue;
-    out.push({ t: year + 0.5, y: mean(arr.map((p) => p.y)), year, month: 7 });
+  const byYear = new Map<number, Map<number, number[]>>();
+
+  for (const p of pts) {
+    if (!byYear.has(p.year)) {
+      byYear.set(p.year, new Map());
+    }
+
+    const months = byYear.get(p.year)!;
+
+    if (!months.has(p.month)) {
+      months.set(p.month, []);
+    }
+
+    months.get(p.month)!.push(p.y);
   }
+
+  const out: RawPoint[] = [];
+
+  for (const [year, months] of [...byYear].sort((a, b) => a[0] - b[0])) {
+    if (months.size < MIN_MONTHS_PER_YEAR) continue;
+
+    const monthlyAverages = [...months.values()].map(values =>
+      mean(values)
+    );
+
+    out.push({
+      t: year + 0.5,
+      y: mean(monthlyAverages),
+      year,
+      month: 7,
+    });
+  }
+
   return out;
 }
+
 
 export interface Analysis {
   mode: Mode;
